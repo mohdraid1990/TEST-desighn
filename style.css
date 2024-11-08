@@ -1,0 +1,805 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* fonts */
+@font-face {
+  font-family: "Gilroy";
+  src: url("fonts/Gilroy-FREE/Gilroy-ExtraBold.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+body {
+  font-family: "Gilroy", "Montserrat", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --white-color: #ffffff;
+  --bordr-color: #ebebeb;
+  --color-list: #222222b2;
+  --black-color: #222222;
+}
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animation to main sections */
+header,
+main h1,
+.btn-content,
+.container,
+footer {
+  opacity: 0; /* Initially hidden */
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* Delay effects for staggered animations */
+header {
+  animation-delay: 0.2s;
+}
+main h1 {
+  animation-delay: 0.4s;
+}
+.btn-content {
+  animation-delay: 0.4s;
+}
+.container {
+  animation-delay: 0.4s;
+}
+footer {
+  animation-delay: 1s;
+}
+
+
+/* Start-Header */
+header {
+  height: 85px;
+  width: 100%;
+  display: flex;
+  background-color: var(--white-color);
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--bordr-color);
+}
+
+.logo {
+  padding-left: 20px;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.list-left,
+.list-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+li a {
+  color: var(--color-list);
+  position: relative;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+
+  transition: color 0.3s ease;
+}
+
+li a::after {
+  content: "";
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--black-color);
+  transition: width 0.3s ease;
+}
+
+/* Hover effect */
+li a:hover {
+  color: var(--black-color);
+}
+
+li a:hover::after {
+  width: 100%;
+}
+
+.map,
+.call {
+  height: 85px;
+  display: flex;
+  width: 85px;
+  align-items: center;
+  justify-content: center;
+}
+
+.map {
+  border-right: 1px solid var(--bordr-color);
+}
+
+.call {
+  border-left: 1px solid var(--bordr-color);
+}
+
+/* Hide menu and hamburger setup */
+#menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 25px;
+}
+/* Tap  */
+@media (max-width: 1030px) {
+  .navigation {
+    justify-content: space-around;
+  }
+  .container {
+    width: 750px !important;
+  }
+  .imge-1 {
+    gap: 7px;
+  }
+  .imge-2 {
+    top: 20% !important;
+
+    margin-top: 3px;
+
+
+    left: 49%;
+  }
+  .image-4 {
+    top: 60% !important;
+    left: 49% !important;
+    flex-direction: column;
+        gap: 8px !important;
+                margin-top: 4px;
+  }
+  .image-5 {
+ 
+    top: 99% !important;
+    left: 0% !important;
+            margin-top: 20px;
+  }
+  .gallery .btn-text {
+    margin-top: 300px;
+  }
+  footer {
+    margin-top: 50px !important;
+}
+.foot-footer {
+ 
+    gap: 50px;
+        justify-content: space-around !important;
+}
+}
+/* Mobile styles */
+@media (max-width: 768px) {
+  .map,
+  .call,
+  .logo {
+ border: none;
+  }
+
+  /* Show hamburger icon */
+  .hamburger {
+    display: block;
+  }
+.logo {
+    padding-left: 0px !important;
+}
+  /* Hide navigation by default */
+  .navigation {
+    display: none;
+    position: absolute;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(237 230 255);
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Show navigation when checkbox is checked */
+  #menu-toggle:checked ~ .navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideIn 0.5s ease forwards; /* Apply animation here */
+  }
+
+  /* Adjust list styles for mobile view */
+  .list-left,
+  .list-right {
+    flex-direction: column;
+    gap: 10px;
+  }
+  li a::after {
+
+    bottom: -5px;
+  }
+  /* Animation for the navigation menu */
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .text {
+
+    position: relative;
+    z-index: -2000;
+  }
+  .btn-content {
+    padding-top: 50px;
+    gap: 10px;
+  }
+  .content-main button {
+    width: 312px !important;
+    height: 50px !important;
+  }
+  .arrow {
+    padding: 10px;
+  }
+    .title-work {
+        position: relative;
+        left: 10%;
+        width: 480px;
+        text-align: center;
+  }
+ 
+  .text-footer {
+   
+    margin-left: 100px;
+}
+}
+@media (max-width: 500px){
+  .container {
+    width: 350px !important;
+
+  }
+  li a::after {
+
+    bottom: -4px;
+
+  }
+  .image-gellery img {
+    width: 350px;
+  }
+      .title-work {
+   
+        width: 330px;
+}
+.title-work h1 {
+
+    font-size: 20px !important;
+}
+.title-work span {
+
+    font-size: 20px !important;
+}
+.title-work h1::before {
+  
+    left: -18% !important;
+}
+.imge-2 {
+      display: none !important;
+
+}
+.image-4{
+       display: none !important;
+}
+.foot-footer input {
+
+    width: 295px !important;
+}
+.foot-footer .sms img {
+    right: 15% !important;
+    bottom: 10% !important;
+}
+.text-footer h1 {
+
+    font-size: 25px !important;
+}
+footer .date p {
+
+    font-size: 10px !important;
+}
+footer .date span {
+
+    font-size: 12px !important;
+}
+.form-footer {
+
+    margin-left: 50px;
+    padding-right: 0 !important;
+}
+.time{
+      margin-left: 51px;
+    margin-top: 20px;
+}
+.agree {
+    width: 300px !important;
+}
+}
+/* End-Header */
+
+/* =================================================== */
+
+/* Start-main */
+
+main {
+  margin-top: 70px;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+main h1 {
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 72px;
+  color: var(--black-color);
+}
+main h1 span {
+  color: transparent;
+  font-family: Gilroy;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 72px;
+  -webkit-text-stroke: 1.5px var(--black-color);
+}
+
+.text p {
+  font-family: Gilroy;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 72px;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--black-color);
+}
+.btn-text {
+  margin-top: 60px;
+  text-align: center;
+}
+.btn-text button {
+  width: 207px;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid #2222224d;
+  cursor: pointer;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+  text-align: center;
+  position: relative;
+}
+.btn-text button::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 1px;
+  background-color: var(--black-color);
+  top: 51%;
+  left: -6%;
+}
+
+.content-main {
+  background-image: url(images/Image.png);
+  background-position: center;
+  margin-top: 122px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 344px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 25px;
+}
+.btn-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.content-main button {
+  width: 360px;
+  height: 85px;
+
+  background-color: transparent;
+  color: var(--white-color);
+
+  font-family: Gilroy;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 24.5px;
+  text-align: center;
+  border: 1px solid var(--white-color);
+  cursor: pointer;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ffffff4d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+/* End-main */
+
+/* ========================================= */
+
+.container {
+  width: 1180px;
+  margin: 0 auto;
+}
+.gallery {
+  margin-top: 120px;
+}
+.title-work {
+  position: relative;
+}
+.title-work h1 {
+  font-family: Gilroy;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 40px;
+  color: var(--black-color);
+}
+.title-work span {
+  color: transparent;
+  font-family: Gilroy;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 40px;
+
+  -webkit-text-stroke: 0.5px var(--black-color);
+}
+.title-work h1::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 40px;
+
+  left: -8%;
+  top: 52%;
+
+  background-color: var(--black-color);
+}
+
+.image-gellery {
+  position: relative;
+  margin-top: 50px;
+}
+
+.imge-1 {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.imge-2 {
+  position: absolute;
+  top: 25%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.imge-3 {
+  margin-top: 3px;
+}
+.image-4 {
+  position: absolute;
+  top: 50%;
+  left: 31%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.image-5 {
+  position: absolute;
+  top: 75%;
+  left: 31%;
+}
+footer {
+  margin-top: 120px;
+}
+.text-footer h1 {
+  font-family: Gilroy;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 40px;
+  color:var(--black-color);
+  position: relative;
+}
+.text-footer h1::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 40px;
+  left: -27%;
+  top: 52%;
+  background-color: var(--black-color);
+}
+.text-footer {
+  width: 266px;
+  height: 40px;
+}
+
+.text-footer span {
+  color: transparent;
+  -webkit-text-stroke: 0.5px var(--black-color);
+}
+
+.foot-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.foot-footer .title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.foot-footer .adress .title h4 {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+  color: var(--black-color);
+}
+.foot-footer .adress .title p {
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--black-color);
+}
+.email,
+.city {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 40px;
+}
+.adress .email {
+  padding-top: 62px;
+}
+.email h4 {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+  color: var(--black-color);
+}
+.email p {
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--black-color);
+}
+
+.city h4 {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+  color: var(--black-color);
+}
+.sequre {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 15px;
+}
+.sequre a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: var(--black-color);
+}
+.time-work {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.time {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+.time h4 {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+
+  color: var(--black-color);
+}
+.time p {
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--black-color);
+  padding-top: 5px;
+}
+
+.form-footer {
+  padding-right: 35px;
+}
+.tel {
+  padding-top: 52px;
+}
+.foot-footer .name,
+.sms {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 20px;
+  position: relative; /* Set relative position to control absolute child elements */
+}
+
+.foot-footer h4 {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+  color: var(--black-color);
+} /* Style for labels */
+.foot-footer label {
+  font-family: Montserrat;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+/* Style for input fields */
+.foot-footer input {
+  border: none;
+  border-bottom: 1px solid var(--bordr-color);
+  width: 360px;
+  outline: none;
+  padding-top: 0px; /* Add space between the placeholder text and the bottom line */
+
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #333; /* Default text color */
+}
+
+/* Style for placeholder */
+.foot-footer input::placeholder {
+  color: #909090; /* Placeholder color */
+}
+
+/* Focus style to keep border consistent */
+.foot-footer input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--bordr-color);
+}
+
+/* Style for icon */
+.foot-footer .sms img {
+  position: absolute;
+  right: 0%;
+  bottom: 7%;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.agree {
+  width: 360px;
+  height: 24px;
+  margin-top: 15px;
+}
+.agree a {
+  font-family: Montserrat;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 12px;
+  color: #909090;
+}
+.agree a span {
+  font-family: Montserrat;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 12px;
+  color: var(--black-color);
+}
+footer .btn-text {
+  text-align: left;
+}
+
+footer .line {
+  width: 100%;
+  height: 1.5px;
+
+  background-color: var(--black-color);
+  margin-top: 120px;
+}
+
+footer .date {
+  display: flex;
+  padding-top: 15px;
+  width: 97%;
+  justify-content: space-between;
+}
+footer .date p {
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+}
+footer .date span {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+}
