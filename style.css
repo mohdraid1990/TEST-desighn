@@ -562,15 +562,16 @@ position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
+    gap: 10px;
 }
 .image-4 img:nth-child(1){
   margin-left: 4px;
 }
 .image-5 {
-  position: absolute;
-  top: 75%;
-  left: 31%;
+position: absolute;
+    top: 75%;
+    left: 31%;
+    margin-left: 4px;
 }
 footer {
   margin-top: 120px;
