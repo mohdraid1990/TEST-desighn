@@ -296,6 +296,12 @@ li a:hover::after {
    
     margin-left: 100px;
 }
+  footer .date {
+ 
+    flex-direction: column;
+    align-items: center;
+ 
+}
 }
 @media (max-width: 500px){
   .container {
